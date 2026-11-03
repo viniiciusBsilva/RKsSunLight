@@ -1,0 +1,556 @@
+/* ==========================================================
+   RK SunLight - ajustes sobre o template base
+   Paleta: verde-petróleo #0e7c66 | amarelo sol #ffc93c | verde escuro #0b2b26
+   ========================================================== */
+
+:root {
+  --brand-primary: #0e7c66;
+  --brand-accent: #ffc93c;
+  --brand-navy: #0b2b26;
+  --brand-whatsapp: #25d366;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  color: #5f6473;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--brand-navy);
+}
+
+/* ---------- Navbar ---------- */
+.navbar-dark {
+  display: flex;
+  background: transparent;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+
+.navbar-dark.navbar-scrolled {
+  background: var(--brand-navy);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-brand .brand-text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.navbar-brand .brand-text small {
+  display: block;
+  font-size: 0.55em;
+  letter-spacing: 3px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-dark {
+    background: var(--brand-navy);
+  }
+  .navbar-brand h1 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ---------- Hero ---------- */
+.carousel-caption {
+  background: linear-gradient(
+    120deg,
+    rgba(11, 43, 38, 0.85) 0%,
+    rgba(11, 43, 38, 0.55) 60%,
+    rgba(14, 124, 102, 0.35) 100%
+  );
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hero-title .highlight {
+  color: var(--brand-accent);
+}
+
+.btn-whatsapp {
+  color: #fff;
+  background: var(--brand-whatsapp);
+  border-color: var(--brand-whatsapp);
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus {
+  color: #fff;
+  background: #1ebe5a;
+  border-color: #1ebe5a;
+}
+
+@media (max-width: 575.98px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .carousel-caption h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ---------- Faixa de números ---------- */
+.stats-bar {
+  background: var(--brand-navy);
+  border-top: 4px solid var(--brand-primary);
+}
+
+.stat-item {
+  padding: 30px 15px;
+  text-align: center;
+  color: #fff;
+}
+
+.stat-item i {
+  color: var(--brand-accent);
+  margin-bottom: 12px;
+}
+
+.stat-item .stat-number {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.stat-item .stat-label {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Sobre ---------- */
+.about-img-wrap {
+  position: relative;
+}
+
+.about-img-wrap .about-tag {
+  position: absolute;
+  right: -10px;
+  bottom: 30px;
+  background: var(--brand-primary);
+  color: #fff;
+  padding: 18px 24px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.about-tag span {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.check-list li {
+  margin-bottom: 10px;
+  color: var(--brand-navy);
+  font-weight: 600;
+}
+
+.check-list li i {
+  color: var(--brand-primary);
+  margin-right: 10px;
+}
+
+/* ---------- Serviços ---------- */
+.product-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 24px rgba(11, 43, 38, 0.08);
+}
+
+.product-item .product-img img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.product-item > div:last-child {
+  flex: 1;
+}
+
+.product-item .service-icon {
+  width: 64px;
+  height: 64px;
+  margin: -56px auto 15px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-primary);
+  color: #fff;
+  border: 4px solid #fff;
+  border-radius: 50%;
+}
+
+.product-item p {
+  text-align: left;
+}
+
+/* ---------- Como funciona ---------- */
+.step-card {
+  position: relative;
+  height: 100%;
+  padding: 40px 25px 30px;
+  background: #fff;
+  border-bottom: 4px solid var(--brand-primary);
+  box-shadow: 0 6px 24px rgba(11, 43, 38, 0.08);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+}
+
+.step-card .step-number {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(14, 124, 102, 0.15);
+  line-height: 1;
+}
+
+.step-card .step-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(14, 124, 102, 0.12);
+  color: var(--brand-primary);
+}
+
+/* ---------- Galeria ---------- */
+.bg-gallery {
+  background: linear-gradient(rgba(11, 43, 38, 0.85), rgba(11, 43, 38, 0.85)),
+    url(../img/gallery.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+/* ---------- FAQ (acordeão) ---------- */
+.faq-accordion .card {
+  border: none;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 16px rgba(11, 43, 38, 0.06);
+}
+
+.faq-accordion .card-header {
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+
+.faq-accordion .card-header button {
+  width: 100%;
+  text-align: left;
+  padding: 18px 22px;
+  font-weight: 700;
+  color: var(--brand-navy);
+  text-decoration: none;
+  white-space: normal;
+}
+
+.faq-accordion .card-header button:hover,
+.faq-accordion .card-header button:focus {
+  color: var(--brand-primary);
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.faq-accordion .card-header button i {
+  float: right;
+  margin-top: 4px;
+  transition: transform 0.3s;
+}
+
+.faq-accordion .card-header button.collapsed i {
+  transform: rotate(-90deg);
+}
+
+.faq-accordion .card-body {
+  padding: 0 22px 20px;
+}
+
+/* ---------- Contato ---------- */
+.contact-info-box {
+  background: var(--brand-navy);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 35px 30px;
+  height: 100%;
+}
+
+.contact-info-box h4 {
+  color: #fff;
+}
+
+.contact-info-box .info-item {
+  display: flex;
+  margin-bottom: 22px;
+}
+
+.contact-info-box .info-item i {
+  flex: 0 0 44px;
+  height: 44px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+.contact-info-box a {
+  color: #fff;
+}
+
+.contact-form .form-control {
+  color: var(--brand-navy);
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  display: block;
+}
+
+/* ---------- Rodapé ---------- */
+.footer a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer a:hover {
+  color: var(--brand-accent);
+  text-decoration: none;
+}
+
+/* ---------- Botões flutuantes ---------- */
+.whatsapp-float {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--brand-whatsapp);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  z-index: 1000;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+  color: #fff;
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+.whatsapp-float::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--brand-whatsapp);
+  animation: wpp-pulse 2s infinite;
+}
+
+@keyframes wpp-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.back-to-top {
+  right: 32px;
+  bottom: 100px;
+}
+
+.contact-form input.form-control,
+.contact-form select.form-control {
+  height: 56px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+  #header-carousel .carousel-control-prev,
+  #header-carousel .carousel-control-next {
+    display: none;
+  }
+  .about-img-wrap .about-tag {
+    right: 0;
+  }
+}
+
+/* ---------- Vídeo de fundo do banner ---------- */
+.hero-video-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--brand-navy) url(../video/hero-poster.jpg) center / cover no-repeat;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-video-wrap #header-carousel {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Cor de destaque e cartões (unidades) ---------- */
+.text-accent {
+  color: var(--brand-accent) !important;
+}
+
+.result-card {
+  position: relative;
+  height: 100%;
+  padding: 35px 30px 30px;
+  background: #fff;
+  border-top: 5px solid var(--brand-primary);
+  box-shadow: 0 10px 35px rgba(11, 43, 38, 0.1);
+  transition: transform 0.3s;
+}
+
+.result-card:hover {
+  transform: translateY(-8px);
+}
+
+.result-card .result-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(14, 124, 102, 0.1);
+  color: var(--brand-primary);
+  float: left;
+  margin-right: 15px;
+}
+
+.result-card .result-tag {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--brand-accent);
+  color: var(--brand-navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.result-card h3 {
+  clear: both;
+  padding-top: 15px;
+}
+
+.result-card .result-place {
+  font-size: 14px;
+  color: #7a8090;
+}
+
+.result-card .result-numbers {
+  display: flex;
+  border-top: 1px solid #e6e9f0;
+  padding-top: 18px;
+  margin-top: 10px;
+}
+
+.result-card .result-numbers div {
+  flex: 1;
+}
+
+.result-card .result-numbers div + div {
+  border-left: 1px solid #e6e9f0;
+  padding-left: 15px;
+}
+
+.result-card .result-numbers strong {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  color: var(--brand-primary);
+  line-height: 1.1;
+}
+
+.result-card .result-numbers span {
+  font-size: 13px;
+  color: #7a8090;
+}
+
+/* Menu: destaque em amarelo para contrastar com o fundo marinho */
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--brand-accent);
+}
+
+.footer a:hover {
+  color: var(--brand-accent);
+}
+
+/* Cartões de unidade: horários em texto menor */
+.result-card .result-numbers strong.h6 {
+  font-size: 1rem;
+  color: var(--brand-navy);
+}

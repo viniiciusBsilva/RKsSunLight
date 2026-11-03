@@ -1,0 +1,169 @@
+/* ==========================================================
+   Animações (opcionais, ligadas com "animacoes": true no JSON)
+   Inspiradas em sites com LayerSlider: tela de carregamento,
+   camadas flutuantes com parallax no banner, zoom lento no fundo
+   e revelação dos blocos ao rolar a página.
+   ========================================================== */
+
+/* ---------- Tela de carregamento ---------- */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#preloader .preloader-logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  animation: preloader-pulse 1.4s ease-in-out infinite;
+}
+
+#preloader .preloader-spinner {
+  width: 38px;
+  height: 38px;
+  margin-top: 28px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.08);
+  border-top-color: var(--brand-primary);
+  animation: preloader-spin 0.9s linear infinite;
+}
+
+@keyframes preloader-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes preloader-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Banner: zoom lento no vídeo (Ken Burns) ---------- */
+.anim-on .hero-video {
+  animation: kenburns 24s ease-in-out infinite alternate;
+  transform-origin: 60% 50%;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.14); }
+}
+
+/* ---------- Banner: textos entram pela direita ---------- */
+.anim-on .carousel-item.active .carousel-caption > div > * {
+  animation: hero-in-right 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.anim-on .carousel-item.active .carousel-caption > div > *:nth-child(2) { animation-delay: 0.12s; }
+.anim-on .carousel-item.active .carousel-caption > div > *:nth-child(3) { animation-delay: 0.24s; }
+.anim-on .carousel-item.active .carousel-caption > div > *:nth-child(4),
+.anim-on .carousel-item.active .carousel-caption > div > *:nth-child(5) { animation-delay: 0.36s; }
+
+@keyframes hero-in-right {
+  from { opacity: 0; transform: translateX(70px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ---------- Banner: camadas flutuantes com parallax ---------- */
+.hero-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-decor .layer {
+  position: absolute;
+  will-change: transform;
+  transition: transform 0.25s ease-out;
+}
+
+.hero-decor .layer > i,
+.hero-decor .layer > span {
+  display: block;
+}
+
+/* Sol que balança (loop de rotação, como no LayerSlider) */
+.hero-decor .decor-sun > i {
+  color: var(--brand-accent);
+  font-size: 140px;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 30px rgba(255, 200, 60, 0.55));
+  animation: sun-swing 12s ease-in-out infinite alternate;
+}
+
+@keyframes sun-swing {
+  from { transform: rotate(-35deg); }
+  to { transform: rotate(35deg); }
+}
+
+/* Ícones flutuando (folhas, painel, raio) */
+.hero-decor .decor-icon > i {
+  color: #fff;
+  opacity: 0.55;
+  animation: float-y 6s ease-in-out infinite alternate;
+}
+.hero-decor .decor-leaf > i { color: #8fd36b; opacity: 0.8; }
+.hero-decor .decor-bolt > i { color: var(--brand-accent); opacity: 0.8; }
+
+@keyframes float-y {
+  from { transform: translateY(-12px) rotate(-6deg); }
+  to { transform: translateY(12px) rotate(6deg); }
+}
+
+/* Partículas (bolinhas que sobem devagar) */
+.hero-decor .particle {
+  position: absolute;
+  bottom: -20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  animation: particle-up linear infinite;
+}
+.hero-decor .particle.fill {
+  border: none;
+  background: var(--brand-accent);
+  opacity: 0.6;
+}
+
+@keyframes particle-up {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translateY(-110vh) translateX(40px); opacity: 0; }
+}
+
+.hero-video-wrap #header-carousel { z-index: 2; }
+
+@media (max-width: 767.98px) {
+  .hero-decor .decor-sun > i { font-size: 90px; }
+  .hero-decor .decor-icon { display: none; }
+}
+
+/* ---------- Revelação ao rolar ---------- */
+[data-anim] {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--anim-delay, 0s);
+  will-change: opacity, transform;
+}
+[data-anim="pop-up"] { transform: scale(0.85); }
+[data-anim="left-to-right"] { transform: translateX(-60px); }
+[data-anim="right-to-left"] { transform: translateX(60px); }
+[data-anim="bottom-to-top"] { transform: translateY(50px); }
+[data-anim="top-to-bottom"] { transform: translateY(-40px); }
+[data-anim="fade"] { transform: none; }
+
+[data-anim].is-visible {
+  opacity: 1;
+  transform: none;
+}

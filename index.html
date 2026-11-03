@@ -47,6 +47,7 @@
     <!-- Bootstrap customizado (cores RK SunLight) + ajustes -->
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/animacoes.css" rel="stylesheet" />
 
     <!-- Dados estruturados para o Google (negócio local) -->
     <script type="application/ld+json">
@@ -74,6 +75,10 @@
   </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="80">
+    <div id="preloader" aria-hidden="true">
+      <img class="preloader-logo" src="img/favicon.svg" alt="" />
+      <div class="preloader-spinner"></div>
+    </div>
     <!-- Navbar Start -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark py-2 py-lg-0 px-lg-5">
       <a href="#home" class="navbar-brand d-block d-lg-none btn-scroll">
@@ -128,6 +133,14 @@
         data-src-mobile="video/hero-mobile.mp4"
         aria-hidden="true"
       ></video>
+      <!-- Camadas flutuantes com parallax (animacoes.js) -->
+      <div class="hero-decor" aria-hidden="true">
+        <div class="layer decor-sun" data-depth="6" style="top: 13%; right: 7%"><i class="fas fa-sun"></i></div>
+        <div class="layer decor-icon decor-leaf" data-depth="12" style="top: 24%; left: 8%"><i class="fas fa-leaf fa-3x"></i></div>
+        <div class="layer decor-icon" data-depth="9" style="bottom: 18%; left: 12%"><i class="fas fa-solar-panel fa-4x"></i></div>
+        <div class="layer decor-icon decor-bolt" data-depth="15" style="bottom: 24%; right: 14%"><i class="fas fa-bolt fa-3x"></i></div>
+        <div class="layer decor-icon decor-leaf" data-depth="7" style="top: 62%; right: 30%"><i class="fas fa-seedling fa-2x"></i></div>
+      </div>
       <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
         <div class="carousel-inner">
           <div class="carousel-item position-relative active" style="height: 100vh; min-height: 560px">
@@ -877,5 +890,6 @@
     <script src="js/main.js"></script>
     <script src="js/hero-video.js"></script>
     <script src="js/whatsapp-form.js"></script>
+    <script src="js/animacoes.js"></script>
   </body>
 </html>
